@@ -6,6 +6,7 @@ import { SplitPane } from '../providers/split-pane';
 import { jmyapis } from '../providers/jmyapis';
 import { jmyfatkit } from '../providers/jmy-fat-kit';
 import { Welcome } from '../pages/welcome/welcome';
+import { ReportePage } from '../pages/reporte/reporte';
 
 import { MiPerfilPage } from '../pages/mi-perfil/mi-perfil'; 
 import { AlimentosPage } from '../pages/alimentos/alimentos';
@@ -62,6 +63,11 @@ export class MyApp {
         component: SucursalesPage, 
         icon: "cube",
         api: "e7e549ace5363b1d33c50874923af0d7"  
+      },{ 
+        title: 'Reporte', 
+        component: ReportePage, 
+        icon: "circle",
+        api: null 
       }
     ];  
  

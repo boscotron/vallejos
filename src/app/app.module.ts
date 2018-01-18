@@ -22,6 +22,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { MiPerfilPage } from '../pages/mi-perfil/mi-perfil';
 import { AlimentosPage } from '../pages/alimentos/alimentos';
 import { SucursalesPage } from '../pages/sucursales/sucursales';
+import { ReportePage } from '../pages/reporte/reporte';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -44,7 +45,8 @@ import {IonTagsInputModule} from "ionic-tags-input";
     TabsPage,
     MiPerfilPage,
     AlimentosPage,
-    SucursalesPage
+    SucursalesPage,
+    ReportePage
   ],
   imports: [
     BrowserModule,HttpModule,MomentModule,LinkyModule,IonTagsInputModule,
@@ -63,7 +65,8 @@ import {IonTagsInputModule} from "ionic-tags-input";
     TabsPage,
     MiPerfilPage,
     AlimentosPage,
-    SucursalesPage
+    SucursalesPage,
+    ReportePage
   ],
   providers: [
     StatusBar,
