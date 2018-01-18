@@ -1,0 +1,134 @@
+<!--
+  Generated template for the ClinicaPatologiaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-searchbar placeholder="Buscar sucursales" (ionInput)="getItems($event)"></ion-searchbar>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+	
+	<ion-row>
+		<ion-col col-sm-12 col-md-4>
+			<ion-card>
+			  <ion-card-content>	
+
+			  	<p>
+			  	 <ion-icon name="information-circle"> </ion-icon> Agregue sucursales para enlistarlas en el directorio general y sea más fácil localizar la sucursal más cercana 
+			  	 </p>	
+
+				<ion-list>
+					<button ion-button color="secondary" (click)="verFormulario()" small> <ion-icon name="add"> </ion-icon> Agregar sucursal </button>
+				</ion-list>
+				<ion-list *ngIf="!!divs.formulario">
+					<ion-row>
+					  <ion-item>
+					    <ion-label floating>Nombre</ion-label>
+					    <ion-input type="text" [(ngModel)]="formulario.nombre"></ion-input>
+					  </ion-item>
+
+					  <ion-item>
+					    <ion-label floating>Calle</ion-label>
+					    <ion-input type="text" [(ngModel)]="formulario.calle"></ion-input>
+					  </ion-item>
+					</ion-row>
+					<ion-row>
+						<ion-col>
+					  <ion-item>
+					    <ion-label floating>Numero Exterior</ion-label>
+					    <ion-input type="text" [(ngModel)]="formulario.no_ext"></ion-input>
+					  </ion-item>
+					</ion-col>
+					<ion-col>
+					  <ion-item>
+					    <ion-label floating>Numero Interior</ion-label>
+					    <ion-input type="text" [(ngModel)]="formulario.no_int"></ion-input>
+					  </ion-item>
+					</ion-col>
+					<ion-col>
+
+					  <ion-item>
+					    <ion-label floating>Colonia</ion-label>
+					    <ion-input type="text" [(ngModel)]="formulario.colonia"></ion-input>
+					  </ion-item>
+					</ion-col>
+					<ion-col>
+
+					  <ion-item>
+					    <ion-label floating>Delegacion o Municipio</ion-label>
+					    <ion-input type="text" [(ngModel)]="formulario.delomun"></ion-input>
+					  </ion-item>
+					</ion-col>
+					<ion-col>
+
+					  <ion-item>
+					    <ion-label floating>Estado</ion-label>
+					    <ion-input type="text" [(ngModel)]="formulario.estado"></ion-input>
+					  </ion-item>
+					</ion-col>
+					<ion-col>
+
+
+					  <ion-item>
+					    <ion-label floating>Código postal</ion-label>
+					    <ion-input type="text" [(ngModel)]="formulario.cp"></ion-input>
+					  </ion-item>
+					</ion-col>
+					<ion-col>
+
+
+					  <ion-item>
+					    <ion-label floating>Teléfono</ion-label>
+					    <ion-input type="text" [(ngModel)]="formulario.telefono"></ion-input>
+					  </ion-item>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					 <ion-item>
+					  	<button ion-button color="secondary" (click)="guardar()" *ngIf="!!divs.btnGuardar"><ion-icon name="send"></ion-icon> Guardar</button>
+					  	<button ion-button color="secondary" (click)="guardar()" *ngIf="!!divs.btnGuardarCambios"><ion-icon name="send"></ion-icon> Guardar edición</button>
+					  </ion-item>
+				</ion-row>
+
+				</ion-list> 
+
+			  </ion-card-content>
+			</ion-card>	
+		</ion-col>
+		<ion-col col-sm-12 col-md-8>
+			<ion-card no-padding>
+				<ion-card-header>
+					Listado de sucursales <ion-icon name="refresh" (click)="ver()"> </ion-icon> 
+				</ion-card-header>
+			  	<ion-card-content no-padding>
+					 <ion-card no-padding>
+					 	<ion-item *ngIf="!!divs.pntLista">
+
+						      <img src="assets/imgs/welcome/8.png" class="slides-img" />
+						      <h2 class="slide-title">Lista vacía</h2>
+						      <p>Agregué nuevas sucursales, esto el fin d enlistarlo en nuestra página web y redes sociales, con esto los clientes más cercanos a tus sucursales podrán recibir información de tus servicios eh invitarlos a conocer tus instalaciones y servicios.</p>						    
+					 	</ion-item>
+					    <ion-item *ngFor="let item of lista;">
+					      <ion-icon name="trash" item-right  (click)="borrar(item.ID_F)"></ion-icon>
+					      <ion-icon name="create" item-right  (click)="editar(item.ID_F)"></ion-icon>
+						    <ion-card-content>
+						     <span>{{item.nombre}}</span>
+						     <p style="white-space:normal;">{{item.descripcion}}</p>
+						    </ion-card-content>
+					    </ion-item>
+					  </ion-card>
+			  	</ion-card-content>
+			</ion-card>	
+		</ion-col>
+	</ion-row>
+</ion-content>

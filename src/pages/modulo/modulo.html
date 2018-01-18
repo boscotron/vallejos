@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Modulo de ejemplo</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<ion-col>
+		<ion-list>
+		 <ion-item>
+		   	Registro actual: {{resultadoPrint || async}}
+		  </ion-item>
+		 <ion-item>
+		    <ion-label floating>Cambiar registro </ion-label>
+		    <ion-input type="text" value=""  [(ngModel)]="formulario.campo1"></ion-input>
+		  </ion-item>
+		  <ion-item>
+		  </ion-item>
+		</ion-list>	
+	</ion-col>
+	<ion-col>
+		<ion-col>
+		  	<button ion-button color="energy" (click)="ver()">Ver prueba</button>
+		</ion-col>
+		<ion-col>
+		  	<button ion-button color="energy" (click)="guardar()">Guardar prueba</button>
+		</ion-col>
+		<ion-col>
+		  	<button ion-button color="energy" (click)="borrar()">Borrar prueba</button>
+		</ion-col>
+	</ion-col>
+</ion-content>

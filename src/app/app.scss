@@ -1,0 +1,69 @@
+// http://ionicframework.com/docs/v2/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+
+#asideMenu{
+	background-color: color($colors, primary);
+	  overflow: scroll;
+	overflow-y:hidden;
+}
+#profile{
+	background-color: color($colors, primary);
+	font-color:#bbb;
+
+}
+.split-pane-md.split-pane-visible > .split-pane-side {
+    min-width: 270px;
+    width: 23%;
+    max-width: 270px;
+    border-right: 0px solid #dedede;
+    border-left: 0;
+}
+
+#asideMenu .item-md {
+    color: #bbb;
+    background-color: #333;
+}
+
+#asideMenu .card-md h2 {
+    color: #d6d4d4;
+}
+::-webkit-scrollbar {
+    width: 0px;  
+    background: transparent; 
+}
+#profile ion-icon{
+	font-size: 3.2em;
+}
+.pBtn{
+	background: transparent; 
+	color:#aaa;
+	text-align: center;
+}
+
+.pBtn ion-icon{
+	font-size: 1.2em !important;
+}
+.tools ion-label{
+	text-align:right;
+	margin:0px !important;
+}
+
+.toolbar-background-md {
+    border-color: color($colors, primary);
+    background: color($colors, lightprimary);
+}

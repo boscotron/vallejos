@@ -1,0 +1,137 @@
+<!--
+  Generated template for the ClinicaAlimentosPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-searchbar placeholder="Buscar en alimentos" (ionInput)="buscar($event)"></ion-searchbar>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content id="alimentos">
+	
+	<ion-row>
+		<ion-col col-sm-12 col-md-4>
+			<ion-card>
+			  <ion-card-content>	
+			  	<p>
+			  	 <ion-icon name="information-circle"> </ion-icon> Agregue recetas para preparar alimentos y seleccione los filtros requeridos para que el sistema pueda filtrar y asignar una dieta con recomendaciones y gustos del paciente.
+			  	 </p>						  
+				<ion-list>
+					<button ion-button color="secondary" (click)="verFormulario()" small> <ion-icon name="add"> </ion-icon> Agregar receta alimenticia</button>
+				</ion-list>
+				<ion-list *ngIf="!!divs.formulario">
+					<ion-row>
+					  <ion-item>
+					    <ion-label floating>Nombre</ion-label>
+					    <ion-input type="text" [(ngModel)]="formulario.nombre"></ion-input>
+					  </ion-item> 
+
+					  <ion-item>
+					   <ion-tags-input [(ngModel)]="ingredientes" [mode]="'light'" [separatorStr]="','" [placeholder]="'Ingredientes'" [canBackspaceRemove]="true" (onChange)="onChange($event)"></ion-tags-input>
+					   </ion-item>
+					  <ion-item>
+					    <ion-label floating>Modo de preparación</ion-label>
+					    <ion-textarea  [(ngModel)]="formulario.preparacion"></ion-textarea>
+					  </ion-item>
+					</ion-row>
+					<ion-row>
+
+					<ion-col>
+						 <ion-item>
+						  <ion-label>Tipo:</ion-label>
+						  <ion-select [(ngModel)]="tipo" multiple="true">
+						    <ion-option>Desayuno</ion-option>
+						    <ion-option>Comida</ion-option>
+						    <ion-option>Cena</ion-option>
+						  </ion-select>
+						</ion-item>
+					</ion-col>	
+
+					
+
+					<ion-col>
+
+						 <ion-item>
+						  <ion-label>Temporada:</ion-label>
+						  <ion-select [(ngModel)]="temporada" multiple="true">
+						    <ion-option>Primavera</ion-option>
+						    <ion-option>Verano</ion-option>
+						    <ion-option>Otoño</ion-option>
+						    <ion-option>Invierno</ion-option>
+						  </ion-select>
+						</ion-item>
+					</ion-col>	
+
+					<ion-col>
+
+
+
+
+						 <ion-item>
+						  <ion-label>Patologías que <strong>NO</strong> aceptan este alimento:</ion-label>
+
+
+
+						  <ion-select [(ngModel)]="patologias" multiple="true">
+							<ion-option *ngFor="let item of resultadoPatologias" [value]="item.ID_F">{{item.nombre}}</ion-option>
+						  </ion-select>
+				        </ion-item>
+					</ion-col>	
+				 </ion-row>
+				 <ion-row>
+					<ion-col>
+					   <ion-item>
+					    <ion-label floating>Calorías</ion-label>
+					    <ion-input type="text"  [(ngModel)]="formulario.calorias"></ion-input>
+					  </ion-item>
+					</ion-col>	
+				</ion-row>
+				<ion-row>
+				  <ion-item>
+				  	<button ion-button color="secondary" (click)="guardar()" *ngIf="!!divs.btnGuardar"><ion-icon name="send"></ion-icon> Guardar</button>
+				  	<button ion-button color="secondary" (click)="guardar()" *ngIf="!!divs.btnGuardarCambios"><ion-icon name="send"></ion-icon> Guardar edición</button>
+				  </ion-item>
+
+				</ion-row>
+				</ion-list>
+
+			  </ion-card-content>
+			</ion-card>	
+		</ion-col>
+		<ion-col col-sm-12 col-md-8>
+			<ion-card no-padding>
+				<ion-card-header>
+					Listado de patologías <ion-icon name="refresh" (click)="ver()"> </ion-icon> 
+				</ion-card-header>
+			  	<ion-card-content no-padding>
+					 <ion-card no-padding>
+					 	<ion-item *ngIf="!!divs.pntLista">
+
+						      <img src="assets/imgs/welcome/1.png" class="slides-img" />
+						      <h2 class="slide-title">Lista vacía</h2>
+						      <p>Agrega nuevos platillos a tu base de datos para que los pacientes tengan a la mano las recetas que son más beneficiosas para el paciente.</p>
+						    
+					 	</ion-item>
+					    <ion-item *ngFor="let item of lista;">
+					      <ion-icon name="trash" item-right  (click)="borrar(item.ID_F)"></ion-icon>
+					      <ion-icon name="create" item-right  (click)="editar(item.ID_F)"></ion-icon>
+						    <ion-card-content>
+						     <span>{{item.nombre}}</span>
+						     <p style="white-space:normal;">{{item.ingredientes}}</p>
+						    </ion-card-content>
+					    </ion-item>
+					  </ion-card>
+			  	</ion-card-content>
+			</ion-card>	
+		</ion-col>
+	</ion-row>
+</ion-content>

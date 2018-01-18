@@ -1,0 +1,35 @@
+<ion-content padding>
+  <ion-grid>
+    <ion-col col-sm-12 offset-md-4 col-md-4 >
+       <div class="center-block w-xxl w-auto-xs p-y-md ">
+        <div class="center-block w-xxl w-auto-xs p-y-md center">
+          <img src="assets/imgs/bananalogo.png" class="logo"/>
+        </div>
+          <div class="p-a-md box-color r box-shadow-z1 text-color m-a">
+            <div>
+            Para recuperar tu contraseña coloca tu correo electronico y al dar clic en "Recupera tu contraseña" recibirás un correo electrónico con las instrucciones para generar una nueva contraseña.
+            </div>
+            <form name="form">
+              <div class="md-form-group float-label">
+                <input type="email" class="md-input"  [(ngModel)]="userData.email" name="email" required>
+                <label>Email</label>
+              </div>
+              <div class="m-b-md">        
+                <label class="md-check">
+                  <input type="checkbox"><i class="primary"></i> Acepto términos y condiciones
+                </label>
+              </div>
+              <button class="btn primary btn-block p-x-md" (click)="recupera()">Recupera tu contaseña</button>
+            </form>
+          </div>
+
+          <div class="p-v-lg text-center">
+            <div>¿Ya tienes cuenta? <a class="text-primary _600" (click)="login()">Ingresa con tu cuenta</a></div>
+          </div>
+        </div>
+    </ion-col>
+  </ion-grid>
+</ion-content>
+
+
+ 

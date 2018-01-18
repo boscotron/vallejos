@@ -1,0 +1,8 @@
+{
+  "name": "dp4",
+  "app_id": "41c5999a",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
